@@ -8,14 +8,21 @@ return {
 
     filesystem = {
       filtered_items = {
-        hide_dotfiles = false,
-        hide_gitignored = false,
+        visible = true,
+        hide_dotfiles = true,
+        hide_gitignored = true,
+        hide_ignored = true,
+        children_inherit_highlights = true,
       },
     },
 
     default_component_configs = {
       container = {
         enable_character_fade = false,
+      },
+
+      name = {
+        use_filtered_colors = true,
       },
 
       indent = {
