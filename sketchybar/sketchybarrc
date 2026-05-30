@@ -26,7 +26,7 @@ sketchybar --bar position=top height=34 blur_radius=0 color="$CLR_BG" padding_le
 
 # === WORKSPACES ===
 sketchybar --add event aerospace_workspace_change
-LABELS=("" "" "" "󱙺" "" "" "" "󰎇" "󰖣")
+LABELS=("" "󱙺" "" "" "󰖣" "" "" "" "󰎇")
 LEFT_SPACE_ITEMS=()
 INDEX=0
 

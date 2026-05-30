@@ -11,6 +11,7 @@ Minimal macOS setup built around a clean terminal workflow and keyboard-driven n
 ### Terminal + Neovim
 
 ![terminal](./screenshots/terminal.png)
+![nvim](./screenshots/nvim.png)
 
 
 ## Setup
@@ -19,9 +20,9 @@ Minimal macOS setup built around a clean terminal workflow and keyboard-driven n
 
 - Terminal: Kitty
 
-- Editor: Neovim (used LazyVim)
+- Editor: Neovim 
 
-- Bar: SketchyBar
+- Bar: SketchyBar [inspired from [here](https://www.reddit.com/r/unixporn/comments/1odcuyu/aerospace_i_thought_id_miss_arch/)]
 
 - Shell: zsh
 
