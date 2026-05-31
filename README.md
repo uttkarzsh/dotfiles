@@ -4,9 +4,10 @@ Minimal macOS setup built around a clean terminal workflow and keyboard-driven n
 
 ## Preview
 
-### Desktop
+### Desktop + Browser
 
 ![desktop](./screenshots/desktop.png)
+![browser](./screenshots/browser.png)
 
 ### Terminal + Neovim
 
@@ -17,17 +18,11 @@ Minimal macOS setup built around a clean terminal workflow and keyboard-driven n
 ## Setup
 
 - WM: Aerospace
-
 - Terminal: Kitty
-
-- Editor: Neovim 
-
+- Editor: Neovim
+- Browser: Zen Browser
 - Bar: SketchyBar [inspired from [here](https://www.reddit.com/r/unixporn/comments/1odcuyu/aerospace_i_thought_id_miss_arch/)]
-
 - Shell: zsh
-
 - Fetch: fastfetch
-
 - Theme: Tokyo Night
-
 - Font: JetBrainsMono Nerd Font
