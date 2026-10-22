@@ -1,16 +1,16 @@
 return {
   {
-    "EdenEast/nightfox.nvim",
+    "datsfilipe/vesper.nvim",
+    lazy = false,
+    priority = 1000,
     opts = {
-      options = {
-        transparent = true,
-        terminal_colors = true,
-
-        styles = {
-          comments = "italic",
-          keywords = "bold",
-          types = "italic,bold",
-        },
+      transparent = true,
+      italics = {
+        comments = true,
+        keywords = true,
+        functions = true,
+        strings = true,
+        variables = true,
       },
     },
   },
@@ -18,7 +18,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "carbonfox",
+      colorscheme = "vesper",
     },
   },
 }

@@ -21,8 +21,7 @@ Minimal macOS setup built around a clean terminal workflow and keyboard-driven n
 - Terminal: Kitty
 - Editor: Neovim
 - Browser: Zen Browser
-- Bar: SketchyBar [inspired from [here](https://www.reddit.com/r/unixporn/comments/1odcuyu/aerospace_i_thought_id_miss_arch/)]
 - Shell: zsh
 - Fetch: fastfetch
-- Theme: Tokyo Night
+- Theme: Vesper 
 - Font: JetBrainsMono Nerd Font
