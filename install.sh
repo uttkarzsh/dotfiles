@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Symlink these dotfiles into ~/.config.
+# Symlink these dotfiles into ~/.config, plus ~/.zshrc.
 # Safe to re-run: existing correct links are left alone, anything else in the
 # way is moved aside to <name>.backup.<timestamp> rather than deleted.
 #
@@ -35,21 +35,17 @@ run() {
 
 suffix=".backup.$(date +%Y%m%d-%H%M%S)"
 
-echo "Linking configs from $DOTFILES into $CONFIG_HOME"
-[[ -d "$CONFIG_HOME" ]] || run mkdir -p "$CONFIG_HOME"
+link() {
+  local name="$1" src="$2" dest="$3"
 
-for name in "${CONFIGS[@]}"; do
-  src="$DOTFILES/$name"
-  dest="$CONFIG_HOME/$name"
-
-  if [[ ! -d "$src" ]]; then
+  if [[ ! -e "$src" ]]; then
     echo "  ! $name: not in repo, skipping"
-    continue
+    return
   fi
 
   if [[ -L "$dest" && "$(readlink "$dest")" == "$src" ]]; then
     echo "  ✓ $name: already linked"
-    continue
+    return
   fi
 
   if [[ -e "$dest" || -L "$dest" ]]; then
@@ -59,7 +55,18 @@ for name in "${CONFIGS[@]}"; do
 
   echo "  → $name: linking $dest -> $src"
   run ln -s "$src" "$dest"
+}
+
+echo "Linking configs from $DOTFILES into $CONFIG_HOME"
+[[ -d "$CONFIG_HOME" ]] || run mkdir -p "$CONFIG_HOME"
+
+for name in "${CONFIGS[@]}"; do
+  link "$name" "$DOTFILES/$name" "$CONFIG_HOME/$name"
 done
+
+# ~/.zshrc lives in $HOME, not ~/.config. Linked before the prompt check below,
+# which then finds the prompt already in the repo's copy.
+link zshrc "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
 
 # zsh prompt: "user in ~/path" on one line, orange ❯ on the next.
 # Appended to ~/.zshrc once; skipped if the marker or the same prompt is already there.
@@ -94,7 +101,7 @@ fi
 
 # Report (don't install) anything the configs expect.
 missing=()
-for cmd in git nvim rg fd fastfetch; do
+for cmd in git nvim rg fd fastfetch magick; do
   command -v "$cmd" >/dev/null 2>&1 || missing+=("$cmd")
 done
 for app in kitty AeroSpace; do

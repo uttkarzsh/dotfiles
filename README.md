@@ -27,19 +27,20 @@ Minimal macOS setup built around a clean terminal workflow and keyboard-driven n
 
 ## Install
 
-Each folder in this repo is a config that lives in `~/.config/<name>`.
-`install.sh` symlinks them there, so edits in the repo apply immediately:
+Most folders in this repo are configs that live in `~/.config/<name>`.
+`install.sh` symlinks them into place, so edits in the repo apply immediately:
 
-| Repo folder  | Linked to               |
+| In repo      | Linked to               |
 | ------------ | ----------------------- |
 | `nvim/`      | `~/.config/nvim`        |
 | `kitty/`     | `~/.config/kitty`       |
 | `aerospace/` | `~/.config/aerospace`   |
 | `fastfetch/` | `~/.config/fastfetch`   |
+| `zsh/.zshrc` | `~/.zshrc`              |
 
 ```sh
-git clone https://github.com/uttkarzsh/dotfiles.git ~/Developer/dotfiles
-cd ~/Developer/dotfiles
+git clone https://github.com/uttkarzsh/dotfiles.git ~/developer/dotfiles
+cd ~/developer/dotfiles
 ./install.sh --dry-run   # preview what will happen
 ./install.sh
 ```
