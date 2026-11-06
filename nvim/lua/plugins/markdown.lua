@@ -18,6 +18,29 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      -- Inline images in markdown (kitty graphics protocol; needs ImageMagick).
+      image = {
+        enabled = true,
+        doc = {
+          -- Let images fill the window. Snacks still caps height at the window's
+          -- height, so a tall image or short window can end up narrower.
+          max_height = 1000,
+          -- Snacks measures max_width against the whole window, gutter included,
+          -- but draws after the gutter, so match the text area to avoid clipping.
+          -- auto_resize re-runs this on splits and resizes for every image.
+          auto_resize = true,
+          on_update_pre = function(placement)
+            local width = math.huge
+            for _, win in ipairs(placement:wins()) do
+              local info = vim.fn.getwininfo(win)[1]
+              width = math.min(width, info.width - info.textoff)
+            end
+            if width < math.huge then
+              placement.opts.max_width = width
+            end
+          end,
+        },
+      },
       indent = {
         filter = function(buf)
           return vim.g.snacks_indent ~= false -- snacks' default filter...
